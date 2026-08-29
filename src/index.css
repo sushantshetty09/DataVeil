@@ -1,0 +1,79 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    background-color: #ffffff;
+    color: #0a0a0a;
+    font-family: 'Inter', sans-serif;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Instrument Serif', serif;
+    font-weight: 400;
+  }
+  
+  code, pre {
+    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  }
+}
+
+/* Custom transitions */
+.transition-snappy {
+  transition: all 150ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Scan line animation inside hero browser mockup */
+@keyframes scan-move {
+  0% {
+    top: 0;
+  }
+  100% {
+    top: 100%;
+  }
+}
+
+.animate-scan {
+  animation: scan-move 3s linear infinite;
+}
+
+/* Pulse animation on install step 3 */
+@keyframes pulse-dot {
+  0% {
+    box-shadow: 0 0 0 0 rgba(10, 10, 10, 0.2);
+  }
+  70% {
+    box-shadow: 0 0 0 8px rgba(10, 10, 10, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(10, 10, 10, 0);
+  }
+}
+
+.animate-pulse-ring {
+  animation: pulse-dot 2s infinite;
+}
+
+/* Scroll reveal utility classes */
+.reveal {
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity 500ms cubic-bezier(0.16, 1, 0.3, 1), transform 500ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.reveal.reveal-active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Typewriter animation line cursor */
+@keyframes blink-caret {
+  from, to { border-color: transparent }
+  50% { border-color: #0a0a0a; }
+}
+
+.typewriter-cursor {
+  border-right: 2px solid #0a0a0a;
+  animation: blink-caret .75s step-end infinite;
+}
